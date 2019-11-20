@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>JavaScript</title>
+    <style>
+
+    #contentor {
+        padding: 20px;
+        background-color: gray;
+    }
+
+    </style>
+</head>
+<body>
+    <div id="contentor">
+        <h1>Parágrafo de Texto</h1>
+    </div>
+    <button id="btn_cinza">Fundo Cinza</button>
+    <button id="btn_verde">Fundo Verde</button>
+</body>
+
+    <script type="text/javascript">
+        
+
+        let contentor = document.getElementById('contentor');
+        let btn_cinza = document.getElementById('btn_cinza');
+        let btn_verde = document.getElementById('btn_verde');
+
+        /*function mudarParaCinza() {
+            contentor.style.backgroundColor = "gray";
+        }
+
+        function mudarParaVerde() {
+            contentor.style.backgroundColor = "green";
+        }
+
+        btn_verde.addEventListener('click', mudarParaVerde);
+        btn_cinza.addEventListener('click', mudarParaCinza);*/
+
+        btn_cinza.onclick = function() {
+            contentor.style.backgroundColor = "gray";
+        }
+
+        btn_verde.onclick = function() {
+            contentor.style.backgroundColor = "green";
+        }
+    </script>
+</html>

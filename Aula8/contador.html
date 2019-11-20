@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Contador de frames</title>
+    <style>
+
+    #contentor {
+        padding: 20px;
+        background-color: gray;
+    }
+
+    </style>
+</head>
+<body>
+    <div id="contentor">
+        <h1>Contador: <span id="alvo">---</span></h1>
+    </div>
+    <button id="btn_iniciar">Iniciar</button>
+    <button id="btn_parar">Parar</button>
+</body>
+
+    <script type="text/javascript">
+
+        let contador = 0;
+        let alvo = document.getElementById('alvo');
+
+        let btn_iniciar = document.getElementById('btn_iniciar');
+        let btn_parar = document.getElementById('btn_parar');
+
+        let continueLoop = true;
+
+        function animar() {
+            if(!continueLoop)
+                return false;
+
+            requestAnimationFrame(animar);
+            mostrar();
+            atualizar();
+        }
+
+        function mostrar() {
+            alvo.innerHTML = contador + "";
+        }
+
+        function atualizar() {
+            contador++;
+        }
+
+        btn_iniciar.onclick = function() {
+            continueLoop = true;
+            animar();
+        }
+
+        btn_parar.onclick = function() {
+            continueLoop = false;
+        }
+
+    </script>
+</html>
