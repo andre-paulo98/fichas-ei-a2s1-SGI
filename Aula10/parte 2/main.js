@@ -54,7 +54,7 @@ function animar() {
 	requestAnimationFrame(animar);
 
 	misturador.update(relogio.getDelta());
-	renderer.render( cena, camara )
+	renderer.render(cena, camara)
 }
 animar()
 
@@ -62,12 +62,15 @@ animar()
 document.getElementById('btn_play').onclick = function() {
 	var e = document.getElementById("menu_loop");
 	var selected = e.options[e.selectedIndex].value;
-	console.log(typeof selected);
-	console.log(selected + " == 1" + (selected == "1"));
-	if(selected.value == "1") {
+
+	acaoLocY.clampWhenFinished = false;
+	acaoRotZ.clampWhenFinished = false;
+	if(selected == "1") {
 		acaoRotZ.setLoop(THREE.LoopOnce);
 		acaoLocY.setLoop(THREE.LoopOnce);
-	} else if(selected.value == "2"){
+		acaoLocY.clampWhenFinished = true;
+		acaoRotZ.clampWhenFinished = true;
+	} else if(selected == "2"){
 		acaoRotZ.setLoop(THREE.LoopRepeat);
 		acaoLocY.setLoop(THREE.LoopRepeat);
 	} else {
@@ -75,8 +78,8 @@ document.getElementById('btn_play').onclick = function() {
 		acaoLocY.setLoop(THREE.LoopPingPong);
 	}
 
-	console.log(acaoRotZ.loop);
-
+	acaoRotZ.reset();
+	acaoLocY.reset();
 	
 	acaoRotZ.play();
 	acaoLocY.play();
